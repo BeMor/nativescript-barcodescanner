@@ -7,6 +7,9 @@
     "id": "org.nativescript.demong",
     "tns-ios": {
       "version": "3.4.1"
+    },
+    "tns-android": {
+      "version": "3.4.2"
     }
   },
   "dependencies": {
@@ -28,6 +31,10 @@
     "zone.js": "~0.8.2"
   },
   "devDependencies": {
+    "babel-traverse": "6.4.5",
+    "babel-types": "6.4.5",
+    "babylon": "6.4.5",
+    "lazy": "1.0.11",
     "nativescript-dev-typescript": "~0.6.0",
     "typescript": "~2.6.2"
   }

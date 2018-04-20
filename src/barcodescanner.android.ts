@@ -1,7 +1,8 @@
-import { ScanOptions, ScanResult } from "./barcodescanner-common";
+import { BarcodeScannerView as BarcodeScannerBaseView, ScanOptions, ScanResult } from "./barcodescanner-common";
 import { AndroidActivityRequestPermissionsEventData} from "tns-core-modules/application";
-import * as appModule from "tns-core-modules/application";
+import * as appModule from "tns-core-modules/application"
 import * as utils from "tns-core-modules/utils/utils";
+import * as labelModule from "tns-core-modules/ui/label";
 
 let SCANNER_REQUEST_CODE = 444;
 
@@ -9,6 +10,72 @@ declare let com, android: any;
 
 let _onScanReceivedCallback = undefined;
 let _onContinuousScanResult = undefined;
+
+
+export class BarcodeScannerView extends BarcodeScannerBaseView {
+
+  private _reader: QRCodeReader;
+  private _scanner: QRCodeReaderViewController;
+  private _hasSupport;
+
+  constructor() {
+    super();
+  }
+
+  createNativeView(): Object {
+    let v = super.createNativeView();
+    this.initView();
+    return v;
+  }
+
+  initView() {
+    
+    //let sv: android.view.SurfaceView = new android.view.SurfaceView(appModule.android.context);
+    //let av: android.view.View = this.android;
+    setTimeout(() => {
+      console.log(typeof this.android);
+      console.log("Added");
+      let sv: me.dm7.barcodescanner.zxing.ZXingScannerView = new me.dm7.barcodescanner.zxing.ZXingScannerView(appModule.android.foregroundActivity);
+      let fl: android.view.ViewGroup = this.android;
+      fl.addView(<any>sv);
+
+      /*appModule.android.on(appModule.AndroidApplication.activityRequestPermissionsEvent, (args: AndroidActivityRequestPermissionsEventData) => {
+        for (let i = 0; i < args.permissions.length; i++) {
+          if (args.grantResults[i] === android.content.pm.PackageManager.PERMISSION_DENIED) {
+              console.log("Please allow access to the Camera and try again.");
+              return;
+            }
+          }
+          let fl: android.widget.FrameLayout = this.android;
+          let sv: android.view.SurfaceView = new android.view.SurfaceView(appModule.android.context);
+          fl.addView(sv);
+
+          let cm: com.google.zxing.client.android.camera.CameraManager = new com.google.zxing.client.android.camera.CameraManager(appModule.android.foregroundActivity);
+          let sh: android.view.SurfaceHolder = sv.getHolder();
+          cm.openDriver(sh);
+          new com.google.zxing.client.android.CaptureActivityHandler(appModule.android.foregroundActivity, "", "", "", cm);
+          console.log("Done");
+        });
+
+        android.support.v4.app.ActivityCompat.requestPermissions(
+          appModule.android.foregroundActivity,
+          [android.Manifest.permission.CAMERA],
+          234 // irrelevant since we simply invoke onPermissionGranted
+        );*/
+
+      
+
+
+    }, 3000);
+    
+  }
+
+  public onLayout(left: number, top: number, right: number, bottom: number): void {
+    super.onLayout(left, top, right, bottom);
+  }
+}
+
+
 
 export class BarcodeScanner {
   private broadcastManager: any = null;

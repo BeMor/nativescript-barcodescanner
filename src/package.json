@@ -69,8 +69,8 @@
   "devDependencies": {
     "nativescript-dev-typescript": "libs",
     "rimraf": "^2.5.0",
-    "tns-core-modules": "~3.4.0",
-    "tns-platform-declarations": "~3.4.0",
+    "tns-core-modules": "^3.4.1",
+    "tns-platform-declarations": "^3.4.1",
     "tslint": "^5.0.0",
     "typescript": "~2.6.0"
   }
