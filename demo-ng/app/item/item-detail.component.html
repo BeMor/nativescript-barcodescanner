@@ -7,10 +7,12 @@
     <Label class="h4" [text]="item.role"></Label>
     <BarcodeScanner
         height="300"
+        width="300"
         formats="QR_CODE, EAN_13"
         beepOnScan="true"
         reportDuplicates="true"
         preferFrontCamera="false"
         (scanResult)="onScanResult($event)">
     </BarcodeScanner>
+    <Label class="h4" [text]="item.role"></Label>
 </FlexboxLayout>

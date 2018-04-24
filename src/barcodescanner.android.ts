@@ -32,13 +32,32 @@ export class BarcodeScannerView extends BarcodeScannerBaseView {
     
     //let sv: android.view.SurfaceView = new android.view.SurfaceView(appModule.android.context);
     //let av: android.view.View = this.android;
+
+    
+
+
+
     setTimeout(() => {
       console.log(typeof this.android);
       console.log("Added");
+      android.support.v4.app.ActivityCompat.requestPermissions(
+        appModule.android.foregroundActivity,
+        [android.Manifest.permission.CAMERA],
+        234 // irrelevant since we simply invoke onPermissionGranted
+      )
+      console.log("Granted");
       let sv: me.dm7.barcodescanner.zxing.ZXingScannerView = new me.dm7.barcodescanner.zxing.ZXingScannerView(appModule.android.foregroundActivity);
       let fl: android.view.ViewGroup = this.android;
       fl.addView(<any>sv);
-
+      console.dir(sv);
+      sv.resumeCameraPreview(new me.dm7.barcodescanner.zxing.ZXingScannerView.ResultHandler({
+        handleResult: function (rawResult: any){
+          console.dir(rawResult);
+        }
+      }));
+      sv.startCamera();
+      sv.setFlash(true);
+      //sv.startCamera();
       /*appModule.android.on(appModule.AndroidApplication.activityRequestPermissionsEvent, (args: AndroidActivityRequestPermissionsEventData) => {
         for (let i = 0; i < args.permissions.length; i++) {
           if (args.grantResults[i] === android.content.pm.PackageManager.PERMISSION_DENIED) {

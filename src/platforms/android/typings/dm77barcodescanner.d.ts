@@ -1,22 +1,3 @@
-declare module barcodescanner {
-	export module xservices {
-		export module nl {
-			export module barcodescanner {
-				export class BuildConfig {
-					public static DEBUG: boolean;
-					public static APPLICATION_ID: string;
-					public static BUILD_TYPE: string;
-					public static FLAVOR: string;
-					public static VERSION_CODE: number;
-					public static VERSION_NAME: string;
-					public constructor();
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./java.lang.String.d.ts" />
 declare module com {
 	export module google {
 		export module zxing {
@@ -166,24 +147,6 @@ declare module com {
 	}
 }
 
-import androidappActivity = android.app.Activity;
-//import androidcontentContext = android.content.Context;
-/// <reference path="./android.app.Activity.d.ts" />
-/// <reference path="./android.content.Context.d.ts" />
-/// <reference path="./java.lang.String.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export class FakeR {
-				public static getId(param0: androidcontentContext, param1: string, param2: string): number;
-				public getId(param0: string, param1: string): number;
-				public constructor(param0: androidappActivity);
-				public constructor(param0: androidcontentContext);
-			}
-		}
-	}
-}
-
 /// <reference path="./java.lang.Throwable.d.ts" />
 declare module com {
 	export module google {
@@ -245,11 +208,11 @@ declare module com {
 	export module google {
 		export module zxing {
 			export class MultiFormatReader {
-				public setHints(param0: javautilMap<String,String>): void;
+				public setHints(param0: javautilMap<any,any>): void;
 				public reset(): void;
 				public decodeWithState(param0: com.google.zxing.BinaryBitmap): com.google.zxing.Result;
 				public decode(param0: com.google.zxing.BinaryBitmap): com.google.zxing.Result;
-				public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+				public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 				public constructor();
 			}
 		}
@@ -265,7 +228,7 @@ declare module com {
 		export module zxing {
 			export class MultiFormatWriter {
 				public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number): com.google.zxing.common.BitMatrix;
-				public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<String,String>): com.google.zxing.common.BitMatrix;
+				public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<any,any>): com.google.zxing.common.BitMatrix;
 				public constructor();
 			}
 		}
@@ -329,12 +292,12 @@ declare module com {
 				 */
 				public constructor(implementation: {
 					decode(param0: com.google.zxing.BinaryBitmap): com.google.zxing.Result;
-					decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+					decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 					reset(): void;
 				});
 				public reset(): void;
 				public decode(param0: com.google.zxing.BinaryBitmap): com.google.zxing.Result;
-				public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+				public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 			}
 		}
 	}
@@ -372,12 +335,12 @@ declare module com {
 				public putMetadata(param0: com.google.zxing.ResultMetadataType, param1: javalangObject): void;
 				public toString(): string;
 				public getText(): string;
-				public putAllMetadata(param0: javautilMap<String,String>): void;
+				public putAllMetadata(param0: javautilMap<any,any>): void;
 				public constructor(param0: string, param1: native.Array<number>, param2: native.Array<com.google.zxing.ResultPoint>, param3: com.google.zxing.BarcodeFormat, param4: number);
 				public constructor(param0: string, param1: native.Array<number>, param2: native.Array<com.google.zxing.ResultPoint>, param3: com.google.zxing.BarcodeFormat);
 				public getNumBits(): number;
 				public getResultPoints(): native.Array<com.google.zxing.ResultPoint>;
-				public getResultMetadata(): javautilMap<String,String>;
+				public getResultMetadata(): javautilMap<any,any>;
 				public getTimestamp(): number;
 			}
 		}
@@ -455,10 +418,10 @@ declare module com {
 				 */
 				public constructor(implementation: {
 					encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number): com.google.zxing.common.BitMatrix;
-					encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<String,String>): com.google.zxing.common.BitMatrix;
+					encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<any,any>): com.google.zxing.common.BitMatrix;
 				});
 				public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number): com.google.zxing.common.BitMatrix;
-				public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<String,String>): com.google.zxing.common.BitMatrix;
+				public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<any,any>): com.google.zxing.common.BitMatrix;
 			}
 		}
 	}
@@ -507,7 +470,7 @@ declare module com {
 					public decode(param0: com.google.zxing.BinaryBitmap): com.google.zxing.Result;
 					public reset(): void;
 					public constructor();
-					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 				}
 			}
 		}
@@ -524,7 +487,7 @@ declare module com {
 			export module aztec {
 				export class AztecWriter {
 					public constructor();
-					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<String,String>): com.google.zxing.common.BitMatrix;
+					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<any,any>): com.google.zxing.common.BitMatrix;
 					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number): com.google.zxing.common.BitMatrix;
 				}
 			}
@@ -695,1600 +658,6 @@ declare module com {
 			export module aztec {
 				export module encoder {
 					export abstract class Token {
-					}
-				}
-			}
-		}
-	}
-}
-
-import androidhardwareSensorEvent = android.hardware.SensorEvent;
-import androidhardwareSensor = android.hardware.Sensor;
-/// <reference path="./android.hardware.Sensor.d.ts" />
-/// <reference path="./android.hardware.SensorEvent.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export class AmbientLightManager {
-						public onSensorChanged(param0: androidhardwareSensorEvent): void;
-						public onAccuracyChanged(param0: androidhardwareSensor, param1: number): void;
-					}
-				}
-			}
-		}
-	}
-}
-
-import androidmediaMediaPlayer = android.media.MediaPlayer;
-/// <reference path="./android.media.MediaPlayer.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export class BeepManager {
-						public close(): void;
-						public onError(param0: androidmediaMediaPlayer, param1: number, param2: number): boolean;
-					}
-				}
-			}
-		}
-	}
-}
-
-import androidosHandler = android.os.Handler;
-import androidosBundle = android.os.Bundle;
-import androidcontentresConfiguration = android.content.res.Configuration;
-import androidviewKeyEvent = android.view.KeyEvent;
-import androidviewMenuItem = android.view.MenuItem;
-import androidcontentIntent = android.content.Intent;
-import androidviewSurfaceHolder = android.view.SurfaceHolder;
-import androidgraphicsBitmap = android.graphics.Bitmap;
-/// <reference path="./android.content.Intent.d.ts" />
-/// <reference path="./android.content.res.Configuration.d.ts" />
-/// <reference path="./android.graphics.Bitmap.d.ts" />
-/// <reference path="./android.os.Bundle.d.ts" />
-/// <reference path="./android.os.Handler.d.ts" />
-/// <reference path="./android.view.KeyEvent.d.ts" />
-/// <reference path="./android.view.MenuItem.d.ts" />
-/// <reference path="./android.view.SurfaceHolder.d.ts" />
-/// <reference path="./com.google.zxing.Result.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export class CaptureActivity {
-						public onKeyDown(param0: number, param1: androidviewKeyEvent): boolean;
-						public constructor();
-						public restartPreviewAfterDelay(param0: number): void;
-						public onResume(): void;
-						public surfaceDestroyed(param0: androidviewSurfaceHolder): void;
-						public surfaceChanged(param0: androidviewSurfaceHolder, param1: number, param2: number, param3: number): void;
-						public handleDecode(param0: com.google.zxing.Result, param1: androidgraphicsBitmap, param2: number): void;
-						public onConfigurationChanged(param0: androidcontentresConfiguration): void;
-						public onOptionsItemSelected(param0: androidviewMenuItem): boolean;
-						public surfaceCreated(param0: androidviewSurfaceHolder): void;
-						public getHandler(): androidosHandler;
-						public onActivityResult(param0: number, param1: number, param2: androidcontentIntent): void;
-						public drawViewfinder(): void;
-						public onPause(): void;
-						public onCreate(param0: androidosBundle): void;
-						public onDestroy(): void;
-					}
-				}
-			}
-		}
-	}
-}
-
-import androidosMessage = android.os.Message;
-/// <reference path="./android.os.Message.d.ts" />
-/// <reference path="./java.lang.String.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export class CaptureActivityHandler {
-						public handleMessage(param0: androidosMessage): void;
-						public quitSynchronously(): void;
-					}
-					export module CaptureActivityHandler {
-						export class State {
-							public static PREVIEW: com.google.zxing.client.android.CaptureActivityHandler.State;
-							public static SUCCESS: com.google.zxing.client.android.CaptureActivityHandler.State;
-							public static DONE: com.google.zxing.client.android.CaptureActivityHandler.State;
-							public static valueOf(param0: string): com.google.zxing.client.android.CaptureActivityHandler.State;
-							public static values(): native.Array<com.google.zxing.client.android.CaptureActivityHandler.State>;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export class Contents {
-						public static URL_KEY: string;
-						public static NOTE_KEY: string;
-						public static PHONE_KEYS: native.Array<string>;
-						public static PHONE_TYPE_KEYS: native.Array<string>;
-						public static EMAIL_KEYS: native.Array<string>;
-						public static EMAIL_TYPE_KEYS: native.Array<string>;
-					}
-					export module Contents {
-						export class Type {
-							public static TEXT: string;
-							public static EMAIL: string;
-							public static PHONE: string;
-							public static SMS: string;
-							public static CONTACT: string;
-							public static LOCATION: string;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export class DecodeFormatManager {
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.os.Message.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export class DecodeHandler {
-						public handleMessage(param0: androidosMessage): void;
-					}
-				}
-			}
-		}
-	}
-}
-
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export class DecodeHintManager {
-					}
-				}
-			}
-		}
-	}
-}
-
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export class DecodeThread {
-						public static BARCODE_BITMAP: string;
-						public static BARCODE_SCALED_FACTOR: string;
-						public run(): void;
-					}
-				}
-			}
-		}
-	}
-}
-
-import androidcontentDialogInterface = android.content.DialogInterface;
-/// <reference path="./android.app.Activity.d.ts" />
-/// <reference path="./android.content.DialogInterface.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export class FinishListener {
-						public onClick(param0: androidcontentDialogInterface, param1: number): void;
-						public constructor(param0: androidappActivity);
-						public onCancel(param0: androidcontentDialogInterface): void;
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.os.Bundle.d.ts" />
-/// <reference path="./android.view.KeyEvent.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export class HelpActivity {
-						public onKeyDown(param0: number, param1: androidviewKeyEvent): boolean;
-						public onSaveInstanceState(param0: androidosBundle): void;
-						public constructor();
-						public onCreate(param0: androidosBundle): void;
-					}
-				}
-			}
-		}
-	}
-}
-
-import javanetURI = java.net.URI;
-/// <reference path="./java.lang.String.d.ts" />
-/// <reference path="./java.net.URI.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export class HttpHelper {
-						public static unredirect(param0: javanetURI): javanetURI;
-						public static downloadViaHttp(param0: string, param1: com.google.zxing.client.android.HttpHelper.ContentType, param2: number): string;
-						public static downloadViaHttp(param0: string, param1: com.google.zxing.client.android.HttpHelper.ContentType): string;
-					}
-					export module HttpHelper {
-						export class ContentType {
-							public static HTML: com.google.zxing.client.android.HttpHelper.ContentType;
-							public static JSON: com.google.zxing.client.android.HttpHelper.ContentType;
-							public static XML: com.google.zxing.client.android.HttpHelper.ContentType;
-							public static TEXT: com.google.zxing.client.android.HttpHelper.ContentType;
-							public static valueOf(param0: string): com.google.zxing.client.android.HttpHelper.ContentType;
-							public static values(): native.Array<com.google.zxing.client.android.HttpHelper.ContentType>;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.content.Context.d.ts" />
-/// <reference path="./android.content.Intent.d.ts" />
-/// <reference path="./java.lang.Object.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export class InactivityTimer {
-					}
-					export module InactivityTimer {
-						export class InactivityAsyncTask {
-							public doInBackground(param0: native.Array<javalangObject>): javalangObject;
-						}
-						export class PowerStatusReceiver {
-							public onReceive(param0: androidcontentContext, param1: androidcontentIntent): void;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./java.lang.String.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export class IntentSource {
-						public static NATIVE_APP_INTENT: com.google.zxing.client.android.IntentSource;
-						public static PRODUCT_SEARCH_LINK: com.google.zxing.client.android.IntentSource;
-						public static ZXING_LINK: com.google.zxing.client.android.IntentSource;
-						public static NONE: com.google.zxing.client.android.IntentSource;
-						public static values(): native.Array<com.google.zxing.client.android.IntentSource>;
-						public static valueOf(param0: string): com.google.zxing.client.android.IntentSource;
-					}
-				}
-			}
-		}
-	}
-}
-
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export class Intents {
-					}
-					export module Intents {
-						export class Encode {
-							public static ACTION: string;
-							public static DATA: string;
-							public static TYPE: string;
-							public static FORMAT: string;
-							public static SHOW_CONTENTS: string;
-						}
-						export class History {
-							public static ITEM_NUMBER: string;
-						}
-						export class Scan {
-							public static ACTION: string;
-							public static MODE: string;
-							public static PRODUCT_MODE: string;
-							public static ONE_D_MODE: string;
-							public static QR_CODE_MODE: string;
-							public static DATA_MATRIX_MODE: string;
-							public static AZTEC_MODE: string;
-							public static PDF417_MODE: string;
-							public static FORMATS: string;
-							public static CAMERA_ID: string;
-							public static CHARACTER_SET: string;
-							public static WIDTH: string;
-							public static HEIGHT: string;
-							public static RESULT_DISPLAY_DURATION_MS: string;
-							public static PROMPT_MESSAGE: string;
-							public static RESULT: string;
-							public static RESULT_FORMAT: string;
-							public static RESULT_UPC_EAN_EXTENSION: string;
-							public static RESULT_BYTES: string;
-							public static RESULT_ORIENTATION: string;
-							public static RESULT_ERROR_CORRECTION_LEVEL: string;
-							public static RESULT_BYTE_SEGMENTS_PREFIX: string;
-							public static SAVE_HISTORY: string;
-							public static SHOW_FLIP_CAMERA_BUTTON: string;
-							public static SHOW_TORCH_BUTTON: string;
-							public static TORCH_ON: string;
-							public static BEEP_ON_SCAN: string;
-							public static BULK_SCAN: string;
-							public static ORIENTATION_LOCK: string;
-						}
-						export class SearchBookContents {
-							public static ACTION: string;
-							public static ISBN: string;
-							public static QUERY: string;
-						}
-						export class Share {
-							public static ACTION: string;
-						}
-						export class WifiConnect {
-							public static ACTION: string;
-							public static SSID: string;
-							public static TYPE: string;
-							public static PASSWORD: string;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.content.Context.d.ts" />
-/// <reference path="./java.lang.String.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export class LocaleManager {
-						public static getCountryTLD(param0: androidcontentContext): string;
-						public static getProductSearchCountryTLD(param0: androidcontentContext): string;
-						public static getBookSearchCountryTLD(param0: androidcontentContext): string;
-						public static isBookSearchUrl(param0: string): boolean;
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.os.Bundle.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export class PreferencesActivity {
-						public static KEY_DECODE_1D_PRODUCT: string;
-						public static KEY_DECODE_1D_INDUSTRIAL: string;
-						public static KEY_DECODE_QR: string;
-						public static KEY_DECODE_DATA_MATRIX: string;
-						public static KEY_DECODE_AZTEC: string;
-						public static KEY_DECODE_PDF417: string;
-						public static KEY_CUSTOM_PRODUCT_SEARCH: string;
-						public static KEY_PLAY_BEEP: string;
-						public static KEY_VIBRATE: string;
-						public static KEY_COPY_TO_CLIPBOARD: string;
-						public static KEY_FRONT_LIGHT_MODE: string;
-						public static KEY_BULK_MODE: string;
-						public static KEY_REMEMBER_DUPLICATES: string;
-						public static KEY_ENABLE_HISTORY: string;
-						public static KEY_SUPPLEMENTAL: string;
-						public static KEY_AUTO_FOCUS: string;
-						public static KEY_INVERT_SCAN: string;
-						public static KEY_SEARCH_COUNTRY: string;
-						public static KEY_DISABLE_AUTO_ORIENTATION: string;
-						public static KEY_DISABLE_CONTINUOUS_FOCUS: string;
-						public static KEY_DISABLE_EXPOSURE: string;
-						public static KEY_DISABLE_METERING: string;
-						public static KEY_DISABLE_BARCODE_SCENE_MODE: string;
-						public static KEY_AUTO_OPEN_WEB: string;
-						public constructor();
-						public onCreate(param0: androidosBundle): void;
-					}
-				}
-			}
-		}
-	}
-}
-
-import androidcontentSharedPreferences = android.content.SharedPreferences;
-import androidpreferencePreference = android.preference.Preference;
-/// <reference path="./android.content.SharedPreferences.d.ts" />
-/// <reference path="./android.os.Bundle.d.ts" />
-/// <reference path="./android.preference.Preference.d.ts" />
-/// <reference path="./java.lang.Object.d.ts" />
-/// <reference path="./java.lang.String.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export class PreferencesFragment {
-						public constructor();
-						public onCreate(param0: androidosBundle): void;
-						public onSharedPreferenceChanged(param0: androidcontentSharedPreferences, param1: string): void;
-					}
-					export module PreferencesFragment {
-						export class CustomSearchURLValidator {
-							public onPreferenceChange(param0: androidpreferencePreference, param1: javalangObject): boolean;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export class ScanFromWebPageManager {
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./com.google.zxing.ResultPoint.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export class ViewfinderResultPointCallback {
-						public foundPossibleResultPoint(param0: com.google.zxing.ResultPoint): void;
-					}
-				}
-			}
-		}
-	}
-}
-
-//import androidutilAttributeSet = android.util.AttributeSet;
-import androidgraphicsCanvas = android.graphics.Canvas;
-/// <reference path="./android.content.Context.d.ts" />
-/// <reference path="./android.graphics.Bitmap.d.ts" />
-/// <reference path="./android.graphics.Canvas.d.ts" />
-/// <reference path="./android.util.AttributeSet.d.ts" />
-/// <reference path="./com.google.zxing.ResultPoint.d.ts" />
-/// <reference path="./com.google.zxing.client.android.camera.CameraManager.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export class ViewfinderView {
-						public constructor(param0: androidcontentContext, param1: androidutilAttributeSet);
-						public setCameraManager(param0: com.google.zxing.client.android.camera.CameraManager): void;
-						public onDraw(param0: androidgraphicsCanvas): void;
-						public drawResultBitmap(param0: androidgraphicsBitmap): void;
-						public addPossibleResultPoint(param0: com.google.zxing.ResultPoint): void;
-						public drawViewfinder(): void;
-					}
-				}
-			}
-		}
-	}
-}
-
-import androidwidgetAdapterView = android.widget.AdapterView;
-import androidviewView = android.view.View;
-/// <reference path="./android.view.View.d.ts" />
-/// <reference path="./android.widget.AdapterView.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module book {
-						export class BrowseBookListener {
-							public onItemClick(param0: androidwidgetAdapterView<any>, param1: androidviewView, param2: number, param3: number): void;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-import orgjsonJSONObject = org.json.JSONObject;
-/// <reference path="./android.os.Bundle.d.ts" />
-/// <reference path="./org.json.JSONObject.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module book {
-						export class SearchBookContentsActivity {
-							public constructor();
-							public onCreate(param0: androidosBundle): void;
-							public onPause(): void;
-							public onResume(): void;
-						}
-						export module SearchBookContentsActivity {
-							export class NetworkTask {
-								public onPostExecute(param0: orgjsonJSONObject): void;
-								public doInBackground(param0: native.Array<string>): orgjsonJSONObject;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-import androidviewViewGroup = android.view.ViewGroup;
-/// <reference path="./android.view.View.d.ts" />
-/// <reference path="./android.view.ViewGroup.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module book {
-						export class SearchBookContentsAdapter {
-							public getView(param0: number, param1: androidviewView, param2: androidviewViewGroup): androidviewView;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.content.Context.d.ts" />
-/// <reference path="./android.util.AttributeSet.d.ts" />
-/// <reference path="./com.google.zxing.client.android.book.SearchBookContentsResult.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module book {
-						export class SearchBookContentsListItem {
-							public constructor(param0: androidcontentContext, param1: androidutilAttributeSet);
-							public set(param0: com.google.zxing.client.android.book.SearchBookContentsResult): void;
-							public onFinishInflate(): void;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./java.lang.String.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module book {
-						export class SearchBookContentsResult {
-							public static setQuery(param0: string): void;
-							public static getQuery(): string;
-							public getPageNumber(): string;
-							public getSnippet(): string;
-							public getPageId(): string;
-							public getValidSnippet(): boolean;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-//import androidhardwareCamera = android.hardware.Camera;
-/// <reference path="./android.hardware.Camera.d.ts" />
-/// <reference path="./java.lang.Object.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module camera {
-						export class AutoFocusManager {
-							public onAutoFocus(param0: boolean, param1: androidhardwareCamera): void;
-						}
-						export module AutoFocusManager {
-							export class AutoFocusTask {
-								public doInBackground(param0: native.Array<javalangObject>): javalangObject;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module camera {
-						export class CameraConfigurationManager {
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-import androidhardwareCameraParameters = android.hardware.Camera.Parameters;
-import androidgraphicsPoint = android.graphics.Point;
-/// <reference path="./android.graphics.Point.d.ts" />
-/// <reference path="./java.lang.CharSequence.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module camera {
-						export class CameraConfigurationUtils {
-							public static setZoom(param0: androidhardwareCameraParameters, param1: number): void;
-							public static setTorch(param0: androidhardwareCameraParameters, param1: boolean): void;
-							public static setMetering(param0: androidhardwareCameraParameters): void;
-							public static setBestExposure(param0: androidhardwareCameraParameters, param1: boolean): void;
-							public static setVideoStabilization(param0: androidhardwareCameraParameters): void;
-							public static findBestPreviewSizeValue(param0: androidhardwareCameraParameters, param1: androidgraphicsPoint): androidgraphicsPoint;
-							public static collectStats(param0: string): string;
-							public static setInvertColor(param0: androidhardwareCameraParameters): void;
-							public static setFocus(param0: androidhardwareCameraParameters, param1: boolean, param2: boolean, param3: boolean): void;
-							public static setBestPreviewFPS(param0: androidhardwareCameraParameters, param1: number, param2: number): void;
-							public static setFocusArea(param0: androidhardwareCameraParameters): void;
-							public static collectStats(param0: androidhardwareCameraParameters): string;
-							public static setBarcodeSceneMode(param0: androidhardwareCameraParameters): void;
-							public static setBestPreviewFPS(param0: androidhardwareCameraParameters): void;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-import androidgraphicsRect = android.graphics.Rect;
-/// <reference path="./android.content.Context.d.ts" />
-/// <reference path="./android.graphics.Rect.d.ts" />
-/// <reference path="./android.os.Handler.d.ts" />
-/// <reference path="./android.view.SurfaceHolder.d.ts" />
-/// <reference path="./com.google.zxing.PlanarYUVLuminanceSource.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module camera {
-						export class CameraManager {
-							public stopPreview(): void;
-							public isTorchOn(): boolean;
-							public buildLuminanceSource(param0: native.Array<number>, param1: number, param2: number): com.google.zxing.PlanarYUVLuminanceSource;
-							public openDriver(param0: androidviewSurfaceHolder): void;
-							public isOpen(): boolean;
-							public setManualFramingRect(param0: number, param1: number): void;
-							public setTorchInitiallyOn(param0: boolean): void;
-							public startPreview(): void;
-							public setTorch(param0: boolean): void;
-							public constructor(param0: androidcontentContext);
-							public requestPreviewFrame(param0: androidosHandler, param1: number): void;
-							public getFramingRectInPreview(): androidgraphicsRect;
-							public setManualCameraId(param0: number): void;
-							public closeDriver(): void;
-							public getFramingRect(): androidgraphicsRect;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.content.SharedPreferences.d.ts" />
-/// <reference path="./java.lang.String.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module camera {
-						export class FrontLightMode {
-							public static ON: com.google.zxing.client.android.camera.FrontLightMode;
-							public static AUTO: com.google.zxing.client.android.camera.FrontLightMode;
-							public static OFF: com.google.zxing.client.android.camera.FrontLightMode;
-							public static valueOf(param0: string): com.google.zxing.client.android.camera.FrontLightMode;
-							public static values(): native.Array<com.google.zxing.client.android.camera.FrontLightMode>;
-							public static readPref(param0: androidcontentSharedPreferences): com.google.zxing.client.android.camera.FrontLightMode;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.hardware.Camera.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module camera {
-						export class PreviewCallback {
-							public onPreviewFrame(param0: native.Array<number>, param1: androidhardwareCamera): void;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./java.lang.String.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module camera {
-						export module open {
-							export class CameraFacing {
-								public static BACK: com.google.zxing.client.android.camera.open.CameraFacing;
-								public static FRONT: com.google.zxing.client.android.camera.open.CameraFacing;
-								public static values(): native.Array<com.google.zxing.client.android.camera.open.CameraFacing>;
-								public static valueOf(param0: string): com.google.zxing.client.android.camera.open.CameraFacing;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.hardware.Camera.d.ts" />
-/// <reference path="./com.google.zxing.client.android.camera.open.CameraFacing.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module camera {
-						export module open {
-							export class OpenCamera {
-								public getCamera(): androidhardwareCamera;
-								public getOrientation(): number;
-								public toString(): string;
-								public constructor(param0: number, param1: androidhardwareCamera, param2: com.google.zxing.client.android.camera.open.CameraFacing, param3: number);
-								public getFacing(): com.google.zxing.client.android.camera.open.CameraFacing;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./com.google.zxing.client.android.camera.open.OpenCamera.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module camera {
-						export module open {
-							export class OpenCameraInterface {
-								public static NO_REQUESTED_CAMERA: number;
-								public static open(param0: number): com.google.zxing.client.android.camera.open.OpenCamera;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.content.Context.d.ts" />
-/// <reference path="./java.lang.CharSequence.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module clipboard {
-						export class ClipboardInterface {
-							public static setText(param0: string, param1: androidcontentContext): void;
-							public static hasText(param0: androidcontentContext): boolean;
-							public static getText(param0: androidcontentContext): string;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module encode {
-						export abstract class ContactEncoder {
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-import androidviewMenu = android.view.Menu;
-/// <reference path="./android.os.Bundle.d.ts" />
-/// <reference path="./android.view.Menu.d.ts" />
-/// <reference path="./android.view.MenuItem.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module encode {
-						export class EncodeActivity {
-							public constructor();
-							public onCreate(param0: androidosBundle): void;
-							public onOptionsItemSelected(param0: androidviewMenuItem): boolean;
-							public onCreateOptionsMenu(param0: androidviewMenu): boolean;
-							public onResume(): void;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./java.lang.CharSequence.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module encode {
-						export class Formatter {
-							/**
-							 * Constructs a new instance of the com.google.zxing.client.android.encode.Formatter interface with the provided implementation.
-							 */
-							public constructor(implementation: {
-								format(param0: string, param1: number): string;
-							});
-							public format(param0: string, param1: number): string;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-//import javautilList = java.util.List;
-/// <reference path="./java.lang.CharSequence.d.ts" />
-/// <reference path="./java.lang.String.d.ts" />
-/// <reference path="./java.util.List.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module encode {
-						export class MECARDContactEncoder extends com.google.zxing.client.android.encode.ContactEncoder {
-							public encode(param0: javautilList<any>, param1: string, param2: javautilList<any>, param3: javautilList<any>, param4: javautilList<any>, param5: javautilList<any>, param6: javautilList<any>, param7: string): native.Array<string>;
-						}
-						export module MECARDContactEncoder {
-							export class MECARDFieldFormatter {
-								public format(param0: string, param1: number): string;
-							}
-							export class MECARDNameDisplayFormatter {
-								public format(param0: string, param1: number): string;
-							}
-							export class MECARDTelDisplayFormatter {
-								public format(param0: string, param1: number): string;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module encode {
-						export class QRCodeEncoder {
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./java.lang.String.d.ts" />
-/// <reference path="./java.util.List.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module encode {
-						export class VCardContactEncoder extends com.google.zxing.client.android.encode.ContactEncoder {
-							public encode(param0: javautilList<any>, param1: string, param2: javautilList<any>, param3: javautilList<any>, param4: javautilList<any>, param5: javautilList<any>, param6: javautilList<any>, param7: string): native.Array<string>;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./java.lang.CharSequence.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module encode {
-						export class VCardFieldFormatter {
-							public format(param0: string, param1: number): string;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./java.lang.CharSequence.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module encode {
-						export class VCardTelDisplayFormatter {
-							public format(param0: string, param1: number): string;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-import androiddatabasesqliteSQLiteDatabase = android.database.sqlite.SQLiteDatabase;
-/// <reference path="./android.database.sqlite.SQLiteDatabase.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module history {
-						export class DBHelper {
-							public onUpgrade(param0: androiddatabasesqliteSQLiteDatabase, param1: number, param2: number): void;
-							public onCreate(param0: androiddatabasesqliteSQLiteDatabase): void;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-import androidwidgetListView = android.widget.ListView;
-import androidviewContextMenu = android.view.ContextMenu;
-import androidviewContextMenuContextMenuInfo = android.view.ContextMenu.ContextMenuInfo;
-/// <reference path="./android.os.Bundle.d.ts" />
-/// <reference path="./android.view.ContextMenu.d.ts" />
-/// <reference path="./android.view.Menu.d.ts" />
-/// <reference path="./android.view.MenuItem.d.ts" />
-/// <reference path="./android.view.View.d.ts" />
-/// <reference path="./android.widget.ListView.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module history {
-						export class HistoryActivity {
-							public constructor();
-							public onCreate(param0: androidosBundle): void;
-							public onCreateContextMenu(param0: androidviewContextMenu, param1: androidviewView, param2: androidviewContextMenuContextMenuInfo): void;
-							public onContextItemSelected(param0: androidviewMenuItem): boolean;
-							public onOptionsItemSelected(param0: androidviewMenuItem): boolean;
-							public onResume(): void;
-							public onListItemClick(param0: androidwidgetListView, param1: androidviewView, param2: number, param3: number): void;
-							public onCreateOptionsMenu(param0: androidviewMenu): boolean;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./com.google.zxing.Result.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module history {
-						export class HistoryItem {
-							public getResult(): com.google.zxing.Result;
-							public getDisplayAndDetails(): string;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.view.View.d.ts" />
-/// <reference path="./android.view.ViewGroup.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module history {
-						export class HistoryItemAdapter {
-							public getView(param0: number, param1: androidviewView, param2: androidviewViewGroup): androidviewView;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.app.Activity.d.ts" />
-/// <reference path="./com.google.zxing.Result.d.ts" />
-/// <reference path="./com.google.zxing.client.android.history.HistoryItem.d.ts" />
-/// <reference path="./com.google.zxing.client.android.result.ResultHandler.d.ts" />
-/// <reference path="./java.lang.String.d.ts" />
-/// <reference path="./java.util.List.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module history {
-						export class HistoryManager {
-							public trimHistory(): void;
-							public addHistoryItemDetails(param0: string, param1: string): void;
-							public addHistoryItem(param0: com.google.zxing.Result, param1: com.google.zxing.client.android.result.ResultHandler): void;
-							public constructor(param0: androidappActivity);
-							public deleteHistoryItem(param0: number): void;
-							public buildHistoryItems(): javautilList<any>;
-							public hasHistoryItems(): boolean;
-							public buildHistoryItem(param0: number): com.google.zxing.client.android.history.HistoryItem;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.app.Activity.d.ts" />
-/// <reference path="./com.google.zxing.client.result.ParsedResult.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module result {
-						export class AddressBookResultHandler extends com.google.zxing.client.android.result.ResultHandler {
-							public constructor(param0: androidappActivity, param1: com.google.zxing.client.result.ParsedResult);
-							public getButtonCount(): number;
-							public getDisplayTitle(): number;
-							public getDisplayContents(): string;
-							public getButtonText(param0: number): number;
-							public handleButtonPress(param0: number): void;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.app.Activity.d.ts" />
-/// <reference path="./com.google.zxing.client.result.ParsedResult.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module result {
-						export class CalendarResultHandler extends com.google.zxing.client.android.result.ResultHandler {
-							public constructor(param0: androidappActivity, param1: com.google.zxing.client.result.ParsedResult);
-							public getButtonCount(): number;
-							public getDisplayTitle(): number;
-							public getDisplayContents(): string;
-							public getButtonText(param0: number): number;
-							public handleButtonPress(param0: number): void;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.app.Activity.d.ts" />
-/// <reference path="./com.google.zxing.client.result.ParsedResult.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module result {
-						export class EmailAddressResultHandler extends com.google.zxing.client.android.result.ResultHandler {
-							public constructor(param0: androidappActivity, param1: com.google.zxing.client.result.ParsedResult);
-							public getButtonCount(): number;
-							public getDisplayTitle(): number;
-							public getButtonText(param0: number): number;
-							public handleButtonPress(param0: number): void;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.app.Activity.d.ts" />
-/// <reference path="./com.google.zxing.client.result.ParsedResult.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module result {
-						export class GeoResultHandler extends com.google.zxing.client.android.result.ResultHandler {
-							public constructor(param0: androidappActivity, param1: com.google.zxing.client.result.ParsedResult);
-							public getButtonCount(): number;
-							public getDisplayTitle(): number;
-							public getButtonText(param0: number): number;
-							public handleButtonPress(param0: number): void;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.app.Activity.d.ts" />
-/// <reference path="./com.google.zxing.Result.d.ts" />
-/// <reference path="./com.google.zxing.client.result.ParsedResult.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module result {
-						export class ISBNResultHandler extends com.google.zxing.client.android.result.ResultHandler {
-							public constructor(param0: androidappActivity, param1: com.google.zxing.client.result.ParsedResult, param2: com.google.zxing.Result);
-							public getButtonCount(): number;
-							public getDisplayTitle(): number;
-							public getButtonText(param0: number): number;
-							public handleButtonPress(param0: number): void;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.app.Activity.d.ts" />
-/// <reference path="./com.google.zxing.Result.d.ts" />
-/// <reference path="./com.google.zxing.client.result.ParsedResult.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module result {
-						export class ProductResultHandler extends com.google.zxing.client.android.result.ResultHandler {
-							public constructor(param0: androidappActivity, param1: com.google.zxing.client.result.ParsedResult, param2: com.google.zxing.Result);
-							public getButtonCount(): number;
-							public getDisplayTitle(): number;
-							public getButtonText(param0: number): number;
-							public handleButtonPress(param0: number): void;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.view.View.d.ts" />
-/// <reference path="./com.google.zxing.client.android.result.ResultHandler.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module result {
-						export class ResultButtonListener {
-							public onClick(param0: androidviewView): void;
-							public constructor(param0: com.google.zxing.client.android.result.ResultHandler, param1: number);
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-import javalangInteger = java.lang.Integer;
-/// <reference path="./com.google.zxing.client.result.ParsedResult.d.ts" />
-/// <reference path="./com.google.zxing.client.result.ParsedResultType.d.ts" />
-/// <reference path="./java.lang.Integer.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module result {
-						export abstract class ResultHandler {
-							public static MAX_BUTTON_COUNT: number;
-							public getResult(): com.google.zxing.client.result.ParsedResult;
-							public areContentsSecure(): boolean;
-							public getType(): com.google.zxing.client.result.ParsedResultType;
-							public getButtonCount(): number;
-							public getDefaultButtonID(): javalangInteger;
-							public getDisplayTitle(): number;
-							public getDisplayContents(): string;
-							public getButtonText(param0: number): number;
-							public handleButtonPress(param0: number): void;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./com.google.zxing.Result.d.ts" />
-/// <reference path="./com.google.zxing.client.android.CaptureActivity.d.ts" />
-/// <reference path="./com.google.zxing.client.android.result.ResultHandler.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module result {
-						export class ResultHandlerFactory {
-							public static makeResultHandler(param0: com.google.zxing.client.android.CaptureActivity, param1: com.google.zxing.Result): com.google.zxing.client.android.result.ResultHandler;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.app.Activity.d.ts" />
-/// <reference path="./com.google.zxing.client.result.ParsedResult.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module result {
-						export class SMSResultHandler extends com.google.zxing.client.android.result.ResultHandler {
-							public constructor(param0: androidappActivity, param1: com.google.zxing.client.result.ParsedResult);
-							public getButtonCount(): number;
-							public getDisplayTitle(): number;
-							public getDisplayContents(): string;
-							public getButtonText(param0: number): number;
-							public handleButtonPress(param0: number): void;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.app.Activity.d.ts" />
-/// <reference path="./com.google.zxing.client.result.ParsedResult.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module result {
-						export class TelResultHandler extends com.google.zxing.client.android.result.ResultHandler {
-							public constructor(param0: androidappActivity, param1: com.google.zxing.client.result.ParsedResult);
-							public getButtonCount(): number;
-							public getDisplayTitle(): number;
-							public getDisplayContents(): string;
-							public getButtonText(param0: number): number;
-							public handleButtonPress(param0: number): void;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.app.Activity.d.ts" />
-/// <reference path="./com.google.zxing.Result.d.ts" />
-/// <reference path="./com.google.zxing.client.result.ParsedResult.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module result {
-						export class TextResultHandler extends com.google.zxing.client.android.result.ResultHandler {
-							public constructor(param0: androidappActivity, param1: com.google.zxing.client.result.ParsedResult, param2: com.google.zxing.Result);
-							public getButtonCount(): number;
-							public getDisplayTitle(): number;
-							public getButtonText(param0: number): number;
-							public handleButtonPress(param0: number): void;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./android.app.Activity.d.ts" />
-/// <reference path="./com.google.zxing.client.result.ParsedResult.d.ts" />
-/// <reference path="./java.lang.Integer.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module result {
-						export class URIResultHandler extends com.google.zxing.client.android.result.ResultHandler {
-							public areContentsSecure(): boolean;
-							public constructor(param0: androidappActivity, param1: com.google.zxing.client.result.ParsedResult);
-							public getButtonCount(): number;
-							public getDefaultButtonID(): javalangInteger;
-							public getDisplayTitle(): number;
-							public getButtonText(param0: number): number;
-							public handleButtonPress(param0: number): void;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./com.google.zxing.client.android.CaptureActivity.d.ts" />
-/// <reference path="./com.google.zxing.client.result.ParsedResult.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module result {
-						export class WifiResultHandler extends com.google.zxing.client.android.result.ResultHandler {
-							public getButtonCount(): number;
-							public getDisplayTitle(): number;
-							public getDisplayContents(): string;
-							public constructor(param0: com.google.zxing.client.android.CaptureActivity, param1: com.google.zxing.client.result.ParsedResult);
-							public getButtonText(param0: number): number;
-							public handleButtonPress(param0: number): void;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module result {
-						export module supplement {
-							export class BookResultInfoRetriever extends com.google.zxing.client.android.result.supplement.SupplementalInfoRetriever {
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module result {
-						export module supplement {
-							export class ProductResultInfoRetriever extends com.google.zxing.client.android.result.supplement.SupplementalInfoRetriever {
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-import androidwidgetTextView = android.widget.TextView;
-/// <reference path="./android.content.Context.d.ts" />
-/// <reference path="./android.widget.TextView.d.ts" />
-/// <reference path="./com.google.zxing.client.android.history.HistoryManager.d.ts" />
-/// <reference path="./com.google.zxing.client.result.ParsedResult.d.ts" />
-/// <reference path="./java.lang.Object.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module result {
-						export module supplement {
-							export abstract class SupplementalInfoRetriever {
-								public static maybeInvokeRetrieval(param0: androidwidgetTextView, param1: com.google.zxing.client.result.ParsedResult, param2: com.google.zxing.client.android.history.HistoryManager, param3: androidcontentContext): void;
-								public onPostExecute(param0: javalangObject): void;
-								public doInBackground(param0: native.Array<javalangObject>): javalangObject;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module result {
-						export module supplement {
-							export class TitleRetriever extends com.google.zxing.client.android.result.supplement.SupplementalInfoRetriever {
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module result {
-						export module supplement {
-							export class URIResultInfoRetriever extends com.google.zxing.client.android.result.supplement.SupplementalInfoRetriever {
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/// <reference path="./java.lang.String.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module wifi {
-						export class NetworkType {
-							public static WEP: com.google.zxing.client.android.wifi.NetworkType;
-							public static WPA: com.google.zxing.client.android.wifi.NetworkType;
-							public static NO_PASSWORD: com.google.zxing.client.android.wifi.NetworkType;
-							public static valueOf(param0: string): com.google.zxing.client.android.wifi.NetworkType;
-							public static values(): native.Array<com.google.zxing.client.android.wifi.NetworkType>;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-import androidnetwifiWifiManager = android.net.wifi.WifiManager;
-/// <reference path="./android.net.wifi.WifiManager.d.ts" />
-/// <reference path="./com.google.zxing.client.result.WifiParsedResult.d.ts" />
-/// <reference path="./java.lang.Object.d.ts" />
-declare module com {
-	export module google {
-		export module zxing {
-			export module client {
-				export module android {
-					export module wifi {
-						export class WifiConfigManager {
-							public constructor(param0: androidnetwifiWifiManager);
-							public doInBackground(param0: native.Array<com.google.zxing.client.result.WifiParsedResult>): javalangObject;
-						}
 					}
 				}
 			}
@@ -2539,9 +908,9 @@ declare module com {
 						public getExpirationDate(): string;
 						public constructor(param0: com.google.zxing.client.result.ParsedResultType);
 						public getRawText(): string;
-						public getUncommonAIs(): javautilMap<String,String>;
+						public getUncommonAIs(): javautilMap<any,any>;
 						public getWeight(): string;
-						public constructor(param0: string, param1: string, param2: string, param3: string, param4: string, param5: string, param6: string, param7: string, param8: string, param9: string, param10: string, param11: string, param12: string, param13: string, param14: javautilMap<String,String>);
+						public constructor(param0: string, param1: string, param2: string, param3: string, param4: string, param5: string, param6: string, param7: string, param8: string, param9: string, param10: string, param11: string, param12: string, param13: string, param14: javautilMap<any,any>);
 					}
 				}
 			}
@@ -3216,6 +1585,8 @@ declare module com {
 	}
 }
 
+import javautilList = java.util.List;
+import javalangInteger = java.lang.Integer;
 /// <reference path="./java.lang.Integer.d.ts" />
 /// <reference path="./java.lang.Object.d.ts" />
 /// <reference path="./java.lang.String.d.ts" />
@@ -3359,7 +1730,7 @@ declare module com {
 				export class StringUtils {
 					public static SHIFT_JIS: string;
 					public static GB2312: string;
-					public static guessEncoding(param0: native.Array<number>, param1: javautilMap<String,String>): string;
+					public static guessEncoding(param0: native.Array<number>, param1: javautilMap<any,any>): string;
 				}
 			}
 		}
@@ -3514,7 +1885,7 @@ declare module com {
 					public decode(param0: com.google.zxing.BinaryBitmap): com.google.zxing.Result;
 					public reset(): void;
 					public constructor();
-					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 				}
 			}
 		}
@@ -3531,7 +1902,7 @@ declare module com {
 			export module datamatrix {
 				export class DataMatrixWriter {
 					public constructor();
-					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<String,String>): com.google.zxing.common.BitMatrix;
+					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<any,any>): com.google.zxing.common.BitMatrix;
 					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number): com.google.zxing.common.BitMatrix;
 				}
 			}
@@ -3950,7 +2321,7 @@ declare module com {
 					public decode(param0: com.google.zxing.BinaryBitmap): com.google.zxing.Result;
 					public reset(): void;
 					public constructor();
-					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 				}
 			}
 		}
@@ -3993,7 +2364,7 @@ declare module com {
 				export module decoder {
 					export class Decoder {
 						public constructor();
-						public decode(param0: com.google.zxing.common.BitMatrix, param1: javautilMap<String,String>): com.google.zxing.common.DecoderResult;
+						public decode(param0: com.google.zxing.common.BitMatrix, param1: javautilMap<any,any>): com.google.zxing.common.DecoderResult;
 						public decode(param0: com.google.zxing.common.BitMatrix): com.google.zxing.common.DecoderResult;
 					}
 				}
@@ -4014,7 +2385,7 @@ declare module com {
 					public decode(param0: com.google.zxing.BinaryBitmap): com.google.zxing.Result;
 					public reset(): void;
 					public constructor(param0: com.google.zxing.Reader);
-					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 				}
 			}
 		}
@@ -4030,7 +2401,7 @@ declare module com {
 		export module zxing {
 			export module multi {
 				export class GenericMultipleBarcodeReader {
-					public decodeMultiple(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): native.Array<com.google.zxing.Result>;
+					public decodeMultiple(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): native.Array<com.google.zxing.Result>;
 					public decodeMultiple(param0: com.google.zxing.BinaryBitmap): native.Array<com.google.zxing.Result>;
 					public constructor(param0: com.google.zxing.Reader);
 				}
@@ -4052,9 +2423,9 @@ declare module com {
 					 */
 					public constructor(implementation: {
 						decodeMultiple(param0: com.google.zxing.BinaryBitmap): native.Array<com.google.zxing.Result>;
-						decodeMultiple(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): native.Array<com.google.zxing.Result>;
+						decodeMultiple(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): native.Array<com.google.zxing.Result>;
 					});
-					public decodeMultiple(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): native.Array<com.google.zxing.Result>;
+					public decodeMultiple(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): native.Array<com.google.zxing.Result>;
 					public decodeMultiple(param0: com.google.zxing.BinaryBitmap): native.Array<com.google.zxing.Result>;
 				}
 			}
@@ -4071,10 +2442,10 @@ declare module com {
 			export module multi {
 				export module qrcode {
 					export class QRCodeMultiReader extends com.google.zxing.qrcode.QRCodeReader implements com.google.zxing.multi.MultipleBarcodeReader {
-						public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+						public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 						public constructor();
 						public decode(param0: com.google.zxing.BinaryBitmap): com.google.zxing.Result;
-						public decodeMultiple(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): native.Array<com.google.zxing.Result>;
+						public decodeMultiple(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): native.Array<com.google.zxing.Result>;
 						public decodeMultiple(param0: com.google.zxing.BinaryBitmap): native.Array<com.google.zxing.Result>;
 						public reset(): void;
 					}
@@ -4100,7 +2471,7 @@ declare module com {
 					export module detector {
 						export class MultiDetector extends com.google.zxing.qrcode.detector.Detector {
 							public constructor(param0: com.google.zxing.common.BitMatrix);
-							public detectMulti(param0: javautilMap<String,String>): native.Array<com.google.zxing.common.DetectorResult>;
+							public detectMulti(param0: javautilMap<any,any>): native.Array<com.google.zxing.common.DetectorResult>;
 						}
 					}
 				}
@@ -4119,7 +2490,7 @@ declare module com {
 				export module qrcode {
 					export module detector {
 						export class MultiFinderPatternFinder extends com.google.zxing.qrcode.detector.FinderPatternFinder {
-							public findMulti(param0: javautilMap<String,String>): native.Array<com.google.zxing.qrcode.detector.FinderPatternInfo>;
+							public findMulti(param0: javautilMap<any,any>): native.Array<com.google.zxing.qrcode.detector.FinderPatternInfo>;
 						}
 						export module MultiFinderPatternFinder {
 							export class ModuleSizeComparator {
@@ -4145,8 +2516,8 @@ declare module com {
 					public decode(param0: com.google.zxing.BinaryBitmap): com.google.zxing.Result;
 					public reset(): void;
 					public constructor();
-					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<String,String>): com.google.zxing.Result;
-					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<any,any>): com.google.zxing.Result;
+					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 				}
 			}
 		}
@@ -4163,7 +2534,7 @@ declare module com {
 			export module oned {
 				export class CodaBarWriter extends com.google.zxing.oned.OneDimensionalCodeWriter {
 					public constructor();
-					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<String,String>): com.google.zxing.common.BitMatrix;
+					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<any,any>): com.google.zxing.common.BitMatrix;
 					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number): com.google.zxing.common.BitMatrix;
 					public encode(param0: string): native.Array<boolean>;
 				}
@@ -4184,8 +2555,8 @@ declare module com {
 					public decode(param0: com.google.zxing.BinaryBitmap): com.google.zxing.Result;
 					public reset(): void;
 					public constructor();
-					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<String,String>): com.google.zxing.Result;
-					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<any,any>): com.google.zxing.Result;
+					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 				}
 			}
 		}
@@ -4202,7 +2573,7 @@ declare module com {
 			export module oned {
 				export class Code128Writer extends com.google.zxing.oned.OneDimensionalCodeWriter {
 					public constructor();
-					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<String,String>): com.google.zxing.common.BitMatrix;
+					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<any,any>): com.google.zxing.common.BitMatrix;
 					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number): com.google.zxing.common.BitMatrix;
 					public encode(param0: string): native.Array<boolean>;
 				}
@@ -4235,8 +2606,8 @@ declare module com {
 					public reset(): void;
 					public constructor(param0: boolean);
 					public constructor();
-					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<String,String>): com.google.zxing.Result;
-					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<any,any>): com.google.zxing.Result;
+					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 				}
 			}
 		}
@@ -4253,7 +2624,7 @@ declare module com {
 			export module oned {
 				export class Code39Writer extends com.google.zxing.oned.OneDimensionalCodeWriter {
 					public constructor();
-					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<String,String>): com.google.zxing.common.BitMatrix;
+					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<any,any>): com.google.zxing.common.BitMatrix;
 					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number): com.google.zxing.common.BitMatrix;
 					public encode(param0: string): native.Array<boolean>;
 				}
@@ -4274,8 +2645,8 @@ declare module com {
 					public decode(param0: com.google.zxing.BinaryBitmap): com.google.zxing.Result;
 					public reset(): void;
 					public constructor();
-					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<String,String>): com.google.zxing.Result;
-					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<any,any>): com.google.zxing.Result;
+					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 				}
 			}
 		}
@@ -4292,7 +2663,7 @@ declare module com {
 			export module oned {
 				export class Code93Writer extends com.google.zxing.oned.OneDimensionalCodeWriter {
 					public constructor();
-					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<String,String>): com.google.zxing.common.BitMatrix;
+					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<any,any>): com.google.zxing.common.BitMatrix;
 					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number): com.google.zxing.common.BitMatrix;
 					public encode(param0: string): native.Array<boolean>;
 					public static appendPattern(param0: native.Array<boolean>, param1: number, param2: native.Array<number>, param3: boolean): number;
@@ -4316,7 +2687,7 @@ declare module com {
 					public reset(): void;
 					public constructor();
 					public decodeMiddle(param0: com.google.zxing.common.BitArray, param1: native.Array<number>, param2: javalangStringBuilder): number;
-					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 				}
 			}
 		}
@@ -4333,7 +2704,7 @@ declare module com {
 			export module oned {
 				export class EAN13Writer extends com.google.zxing.oned.UPCEANWriter {
 					public constructor();
-					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<String,String>): com.google.zxing.common.BitMatrix;
+					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<any,any>): com.google.zxing.common.BitMatrix;
 					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number): com.google.zxing.common.BitMatrix;
 					public encode(param0: string): native.Array<boolean>;
 				}
@@ -4356,7 +2727,7 @@ declare module com {
 					public reset(): void;
 					public constructor();
 					public decodeMiddle(param0: com.google.zxing.common.BitArray, param1: native.Array<number>, param2: javalangStringBuilder): number;
-					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 				}
 			}
 		}
@@ -4373,7 +2744,7 @@ declare module com {
 			export module oned {
 				export class EAN8Writer extends com.google.zxing.oned.UPCEANWriter {
 					public constructor();
-					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<String,String>): com.google.zxing.common.BitMatrix;
+					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<any,any>): com.google.zxing.common.BitMatrix;
 					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number): com.google.zxing.common.BitMatrix;
 					public encode(param0: string): native.Array<boolean>;
 				}
@@ -4405,8 +2776,8 @@ declare module com {
 					public decode(param0: com.google.zxing.BinaryBitmap): com.google.zxing.Result;
 					public reset(): void;
 					public constructor();
-					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<String,String>): com.google.zxing.Result;
-					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<any,any>): com.google.zxing.Result;
+					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 				}
 			}
 		}
@@ -4423,7 +2794,7 @@ declare module com {
 			export module oned {
 				export class ITFWriter extends com.google.zxing.oned.OneDimensionalCodeWriter {
 					public constructor();
-					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<String,String>): com.google.zxing.common.BitMatrix;
+					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<any,any>): com.google.zxing.common.BitMatrix;
 					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number): com.google.zxing.common.BitMatrix;
 					public encode(param0: string): native.Array<boolean>;
 				}
@@ -4444,9 +2815,9 @@ declare module com {
 					public reset(): void;
 					public decode(param0: com.google.zxing.BinaryBitmap): com.google.zxing.Result;
 					public constructor();
-					public constructor(param0: javautilMap<String,String>);
-					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<String,String>): com.google.zxing.Result;
-					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+					public constructor(param0: javautilMap<any,any>);
+					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<any,any>): com.google.zxing.Result;
+					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 				}
 			}
 		}
@@ -4465,9 +2836,9 @@ declare module com {
 					public reset(): void;
 					public decode(param0: com.google.zxing.BinaryBitmap): com.google.zxing.Result;
 					public constructor();
-					public constructor(param0: javautilMap<String,String>);
-					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<String,String>): com.google.zxing.Result;
-					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+					public constructor(param0: javautilMap<any,any>);
+					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<any,any>): com.google.zxing.Result;
+					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 				}
 			}
 		}
@@ -4488,9 +2859,9 @@ declare module com {
 					public constructor();
 					public static recordPattern(param0: com.google.zxing.common.BitArray, param1: number, param2: native.Array<number>): void;
 					public static patternMatchVariance(param0: native.Array<number>, param1: native.Array<number>, param2: number): number;
-					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<String,String>): com.google.zxing.Result;
+					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<any,any>): com.google.zxing.Result;
 					public static recordPatternInReverse(param0: com.google.zxing.common.BitArray, param1: number, param2: native.Array<number>): void;
-					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 				}
 			}
 		}
@@ -4508,7 +2879,7 @@ declare module com {
 				export abstract class OneDimensionalCodeWriter {
 					public getDefaultMargin(): number;
 					public constructor();
-					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<String,String>): com.google.zxing.common.BitMatrix;
+					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<any,any>): com.google.zxing.common.BitMatrix;
 					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number): com.google.zxing.common.BitMatrix;
 					public encode(param0: string): native.Array<boolean>;
 					public static appendPattern(param0: native.Array<boolean>, param1: number, param2: native.Array<number>, param3: boolean): number;
@@ -4528,13 +2899,13 @@ declare module com {
 		export module zxing {
 			export module oned {
 				export class UPCAReader extends com.google.zxing.oned.UPCEANReader {
-					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: native.Array<number>, param3: javautilMap<String,String>): com.google.zxing.Result;
+					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: native.Array<number>, param3: javautilMap<any,any>): com.google.zxing.Result;
 					public decode(param0: com.google.zxing.BinaryBitmap): com.google.zxing.Result;
 					public reset(): void;
 					public constructor();
 					public decodeMiddle(param0: com.google.zxing.common.BitArray, param1: native.Array<number>, param2: javalangStringBuilder): number;
-					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<String,String>): com.google.zxing.Result;
-					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<any,any>): com.google.zxing.Result;
+					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 				}
 			}
 		}
@@ -4551,7 +2922,7 @@ declare module com {
 			export module oned {
 				export class UPCAWriter {
 					public constructor();
-					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<String,String>): com.google.zxing.common.BitMatrix;
+					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<any,any>): com.google.zxing.common.BitMatrix;
 					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number): com.google.zxing.common.BitMatrix;
 				}
 			}
@@ -4602,13 +2973,13 @@ declare module com {
 		export module zxing {
 			export module oned {
 				export abstract class UPCEANReader extends com.google.zxing.oned.OneDReader {
-					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: native.Array<number>, param3: javautilMap<String,String>): com.google.zxing.Result;
+					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: native.Array<number>, param3: javautilMap<any,any>): com.google.zxing.Result;
 					public decode(param0: com.google.zxing.BinaryBitmap): com.google.zxing.Result;
 					public reset(): void;
 					public constructor();
 					public decodeMiddle(param0: com.google.zxing.common.BitArray, param1: native.Array<number>, param2: javalangStringBuilder): number;
-					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<String,String>): com.google.zxing.Result;
-					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+					public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<any,any>): com.google.zxing.Result;
+					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 				}
 			}
 		}
@@ -4626,7 +2997,7 @@ declare module com {
 				export abstract class UPCEANWriter extends com.google.zxing.oned.OneDimensionalCodeWriter {
 					public getDefaultMargin(): number;
 					public constructor();
-					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<String,String>): com.google.zxing.common.BitMatrix;
+					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<any,any>): com.google.zxing.common.BitMatrix;
 					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number): com.google.zxing.common.BitMatrix;
 					public encode(param0: string): native.Array<boolean>;
 				}
@@ -4652,7 +3023,7 @@ declare module com {
 					public constructor();
 					public decodeMiddle(param0: com.google.zxing.common.BitArray, param1: native.Array<number>, param2: javalangStringBuilder): number;
 					public static convertUPCEtoUPCA(param0: string): string;
-					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 					public decodeEnd(param0: com.google.zxing.common.BitArray, param1: number): native.Array<number>;
 				}
 			}
@@ -4670,7 +3041,7 @@ declare module com {
 			export module oned {
 				export class UPCEWriter extends com.google.zxing.oned.UPCEANWriter {
 					public constructor();
-					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<String,String>): com.google.zxing.common.BitMatrix;
+					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<any,any>): com.google.zxing.common.BitMatrix;
 					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number): com.google.zxing.common.BitMatrix;
 					public encode(param0: string): native.Array<boolean>;
 				}
@@ -4696,7 +3067,7 @@ declare module com {
 						public getOddRoundingErrors(): native.Array<number>;
 						public static count(param0: native.Array<number>): number;
 						public getEvenRoundingErrors(): native.Array<number>;
-						public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+						public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 						public static parseFinderValue(param0: native.Array<number>, param1: native.Array<native.Array<number>>): number;
 						public decode(param0: com.google.zxing.BinaryBitmap): com.google.zxing.Result;
 						public getEvenCounts(): native.Array<number>;
@@ -4774,10 +3145,10 @@ declare module com {
 			export module oned {
 				export module rss {
 					export class RSS14Reader extends com.google.zxing.oned.rss.AbstractRSSReader {
-						public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+						public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 						public constructor();
 						public decode(param0: com.google.zxing.BinaryBitmap): com.google.zxing.Result;
-						public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<String,String>): com.google.zxing.Result;
+						public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<any,any>): com.google.zxing.Result;
 						public reset(): void;
 					}
 				}
@@ -4866,8 +3237,8 @@ declare module com {
 					export module expanded {
 						export class RSSExpandedReader extends com.google.zxing.oned.rss.AbstractRSSReader {
 							public constructor();
-							public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<String,String>): com.google.zxing.Result;
-							public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+							public decodeRow(param0: number, param1: com.google.zxing.common.BitArray, param2: javautilMap<any,any>): com.google.zxing.Result;
+							public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 							public decode(param0: com.google.zxing.BinaryBitmap): com.google.zxing.Result;
 							public reset(): void;
 						}
@@ -5235,7 +3606,7 @@ declare module com {
 	}
 }
 
-//import javautilCollection = java.util.Collection;
+import javautilCollection = java.util.Collection;
 /// <reference path="./java.util.Collection.d.ts" />
 declare module com {
 	export module google {
@@ -5269,10 +3640,10 @@ declare module com {
 				export class PDF417Reader {
 					public decode(param0: com.google.zxing.BinaryBitmap): com.google.zxing.Result;
 					public reset(): void;
-					public decodeMultiple(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): native.Array<com.google.zxing.Result>;
+					public decodeMultiple(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): native.Array<com.google.zxing.Result>;
 					public constructor();
 					public decodeMultiple(param0: com.google.zxing.BinaryBitmap): native.Array<com.google.zxing.Result>;
-					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 				}
 			}
 		}
@@ -5310,7 +3681,7 @@ declare module com {
 			export module pdf417 {
 				export class PDF417Writer {
 					public constructor();
-					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<String,String>): com.google.zxing.common.BitMatrix;
+					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<any,any>): com.google.zxing.common.BitMatrix;
 					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number): com.google.zxing.common.BitMatrix;
 				}
 			}
@@ -5533,7 +3904,7 @@ declare module com {
 			export module pdf417 {
 				export module detector {
 					export class Detector {
-						public static detect(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>, param2: boolean): com.google.zxing.pdf417.detector.PDF417DetectorResult;
+						public static detect(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>, param2: boolean): com.google.zxing.pdf417.detector.PDF417DetectorResult;
 					}
 				}
 			}
@@ -5690,7 +4061,7 @@ declare module com {
 					public reset(): void;
 					public constructor();
 					public getDecoder(): com.google.zxing.qrcode.decoder.Decoder;
-					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<String,String>): com.google.zxing.Result;
+					public decode(param0: com.google.zxing.BinaryBitmap, param1: javautilMap<any,any>): com.google.zxing.Result;
 				}
 			}
 		}
@@ -5707,7 +4078,7 @@ declare module com {
 			export module qrcode {
 				export class QRCodeWriter {
 					public constructor();
-					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<String,String>): com.google.zxing.common.BitMatrix;
+					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number, param4: javautilMap<any,any>): com.google.zxing.common.BitMatrix;
 					public encode(param0: string, param1: com.google.zxing.BarcodeFormat, param2: number, param3: number): com.google.zxing.common.BitMatrix;
 				}
 			}
@@ -5788,9 +4159,9 @@ declare module com {
 				export module decoder {
 					export class Decoder {
 						public constructor();
-						public decode(param0: com.google.zxing.common.BitMatrix, param1: javautilMap<String,String>): com.google.zxing.common.DecoderResult;
+						public decode(param0: com.google.zxing.common.BitMatrix, param1: javautilMap<any,any>): com.google.zxing.common.DecoderResult;
 						public decode(param0: native.Array<native.Array<boolean>>): com.google.zxing.common.DecoderResult;
-						public decode(param0: native.Array<native.Array<boolean>>, param1: javautilMap<String,String>): com.google.zxing.common.DecoderResult;
+						public decode(param0: native.Array<native.Array<boolean>>, param1: javautilMap<any,any>): com.google.zxing.common.DecoderResult;
 						public decode(param0: com.google.zxing.common.BitMatrix): com.google.zxing.common.DecoderResult;
 					}
 				}
@@ -5958,7 +4329,7 @@ declare module com {
 					export class Detector {
 						public processFinderPatternInfo(param0: com.google.zxing.qrcode.detector.FinderPatternInfo): com.google.zxing.common.DetectorResult;
 						public getImage(): com.google.zxing.common.BitMatrix;
-						public detect(param0: javautilMap<String,String>): com.google.zxing.common.DetectorResult;
+						public detect(param0: javautilMap<any,any>): com.google.zxing.common.DetectorResult;
 						public findAlignmentInRegion(param0: number, param1: number, param2: number, param3: number): com.google.zxing.qrcode.detector.AlignmentPattern;
 						public getResultPointCallback(): com.google.zxing.ResultPointCallback;
 						public constructor(param0: com.google.zxing.common.BitMatrix);
@@ -6085,7 +4456,7 @@ declare module com {
 				export module encoder {
 					export class Encoder {
 						public static chooseMode(param0: string): com.google.zxing.qrcode.decoder.Mode;
-						public static encode(param0: string, param1: com.google.zxing.qrcode.decoder.ErrorCorrectionLevel, param2: javautilMap<String,String>): com.google.zxing.qrcode.encoder.QRCode;
+						public static encode(param0: string, param1: com.google.zxing.qrcode.decoder.ErrorCorrectionLevel, param2: javautilMap<any,any>): com.google.zxing.qrcode.encoder.QRCode;
 						public static encode(param0: string, param1: com.google.zxing.qrcode.decoder.ErrorCorrectionLevel): com.google.zxing.qrcode.encoder.QRCode;
 					}
 				}
@@ -6151,7 +4522,262 @@ declare module com {
 	}
 }
 
-/// <reference path="./_helpers.d.ts" />
+import androidcontentContext = android.content.Context;
+import androidutilAttributeSet = android.util.AttributeSet;
+import androidgraphicsRect = android.graphics.Rect;
+import androidhardwareCamera = android.hardware.Camera;
+/// <reference path="./android.content.Context.d.ts" />
+/// <reference path="./android.graphics.Rect.d.ts" />
+/// <reference path="./android.hardware.Camera.d.ts" />
+/// <reference path="./android.util.AttributeSet.d.ts" />
+/// <reference path="./me.dm7.barcodescanner.core.CameraWrapper.d.ts" />
+/// <reference path="./me.dm7.barcodescanner.core.IViewFinder.d.ts" />
+declare module me {
+	export module dm7 {
+		export module barcodescanner {
+			export module core {
+				export abstract class BarcodeScannerView {
+					public setBorderAlpha(param0: number): void;
+					public setMaskColor(param0: number): void;
+					public toggleFlash(): void;
+					public setBorderStrokeWidth(param0: number): void;
+					public stopCamera(): void;
+					public setBorderCornerRadius(param0: number): void;
+					public setShouldScaleToFill(param0: boolean): void;
+					public getFramingRectInPreview(param0: number, param1: number): androidgraphicsRect;
+					public getRotationCount(): number;
+					public setupLayout(param0: me.dm7.barcodescanner.core.CameraWrapper): void;
+					public createViewFinderView(param0: androidcontentContext): me.dm7.barcodescanner.core.IViewFinder;
+					public startCamera(param0: number): void;
+					public setLaserColor(param0: number): void;
+					public startCamera(): void;
+					public setLaserEnabled(param0: boolean): void;
+					public setBorderColor(param0: number): void;
+					public setSquareViewFinder(param0: boolean): void;
+					public setIsBorderCornerRounded(param0: boolean): void;
+					public setAutoFocus(param0: boolean): void;
+					public setFlash(param0: boolean): void;
+					public resumeCameraPreview(): void;
+					public getFlash(): boolean;
+					public setAspectTolerance(param0: number): void;
+					public constructor(param0: androidcontentContext, param1: androidutilAttributeSet);
+					public setupCameraPreview(param0: me.dm7.barcodescanner.core.CameraWrapper): void;
+					public stopCameraPreview(): void;
+					public constructor(param0: androidcontentContext);
+					public setBorderLineLength(param0: number): void;
+					public getRotatedData(param0: native.Array<number>, param1: androidhardwareCamera): native.Array<number>;
+				}
+			}
+		}
+	}
+}
+
+declare module me {
+	export module dm7 {
+		export module barcodescanner {
+			export module core {
+				export class BuildConfig {
+					public static DEBUG: boolean;
+					public static APPLICATION_ID: string;
+					public static BUILD_TYPE: string;
+					public static FLAVOR: string;
+					public static VERSION_CODE: number;
+					public static VERSION_NAME: string;
+					public constructor();
+				}
+			}
+		}
+	}
+}
+
+/// <reference path="./me.dm7.barcodescanner.core.BarcodeScannerView.d.ts" />
+declare module me {
+	export module dm7 {
+		export module barcodescanner {
+			export module core {
+				export class CameraHandlerThread {
+					public constructor(param0: me.dm7.barcodescanner.core.BarcodeScannerView);
+					public startCamera(param0: number): void;
+				}
+			}
+		}
+	}
+}
+
+import androidhardwareCameraPreviewCallback = android.hardware.Camera.PreviewCallback;
+import androidviewSurfaceHolder = android.view.SurfaceHolder;
+/// <reference path="./android.content.Context.d.ts" />
+/// <reference path="./android.util.AttributeSet.d.ts" />
+/// <reference path="./android.view.SurfaceHolder.d.ts" />
+/// <reference path="./me.dm7.barcodescanner.core.CameraWrapper.d.ts" />
+declare module me {
+	export module dm7 {
+		export module barcodescanner {
+			export module core {
+				export class CameraPreview {
+					public setAutoFocus(param0: boolean): void;
+					public setCamera(param0: me.dm7.barcodescanner.core.CameraWrapper, param1: androidhardwareCameraPreviewCallback): void;
+					public showCameraPreview(): void;
+					public constructor(param0: androidcontentContext, param1: me.dm7.barcodescanner.core.CameraWrapper, param2: androidhardwareCameraPreviewCallback);
+					public setShouldScaleToFill(param0: boolean): void;
+					public surfaceChanged(param0: androidviewSurfaceHolder, param1: number, param2: number, param3: number): void;
+					public constructor(param0: androidcontentContext, param1: androidutilAttributeSet, param2: me.dm7.barcodescanner.core.CameraWrapper, param3: androidhardwareCameraPreviewCallback);
+					public setAspectTolerance(param0: number): void;
+					public init(param0: me.dm7.barcodescanner.core.CameraWrapper, param1: androidhardwareCameraPreviewCallback): void;
+					public safeAutoFocus(): void;
+					public setupCameraParameters(): void;
+					public surfaceCreated(param0: androidviewSurfaceHolder): void;
+					public stopCameraPreview(): void;
+					public getDisplayOrientation(): number;
+					public surfaceDestroyed(param0: androidviewSurfaceHolder): void;
+				}
+			}
+		}
+	}
+}
+
+/// <reference path="./android.hardware.Camera.d.ts" />
+declare module me {
+	export module dm7 {
+		export module barcodescanner {
+			export module core {
+				export class CameraUtils {
+					public static getCameraInstance(param0: number): androidhardwareCamera;
+					public constructor();
+					public static isFlashSupported(param0: androidhardwareCamera): boolean;
+					public static getDefaultCameraId(): number;
+					public static getCameraInstance(): androidhardwareCamera;
+				}
+			}
+		}
+	}
+}
+
+/// <reference path="./android.hardware.Camera.d.ts" />
+declare module me {
+	export module dm7 {
+		export module barcodescanner {
+			export module core {
+				export class CameraWrapper {
+					public mCamera: androidhardwareCamera;
+					public mCameraId: number;
+					public static getWrapper(param0: androidhardwareCamera, param1: number): me.dm7.barcodescanner.core.CameraWrapper;
+				}
+			}
+		}
+	}
+}
+
+import androidgraphicsPoint = android.graphics.Point;
+/// <reference path="./android.content.Context.d.ts" />
+/// <reference path="./android.graphics.Point.d.ts" />
+declare module me {
+	export module dm7 {
+		export module barcodescanner {
+			export module core {
+				export class DisplayUtils {
+					public static getScreenResolution(param0: androidcontentContext): androidgraphicsPoint;
+					public constructor();
+					public static getScreenOrientation(param0: androidcontentContext): number;
+				}
+			}
+		}
+	}
+}
+
+/// <reference path="./android.graphics.Rect.d.ts" />
+declare module me {
+	export module dm7 {
+		export module barcodescanner {
+			export module core {
+				export class IViewFinder {
+					/**
+					 * Constructs a new instance of the me.dm7.barcodescanner.core.IViewFinder interface with the provided implementation.
+					 */
+					public constructor(implementation: {
+						setLaserColor(param0: number): void;
+						setMaskColor(param0: number): void;
+						setBorderColor(param0: number): void;
+						setBorderStrokeWidth(param0: number): void;
+						setBorderLineLength(param0: number): void;
+						setLaserEnabled(param0: boolean): void;
+						setBorderCornerRounded(param0: boolean): void;
+						setBorderAlpha(param0: number): void;
+						setBorderCornerRadius(param0: number): void;
+						setViewFinderOffset(param0: number): void;
+						setSquareViewFinder(param0: boolean): void;
+						setupViewFinder(): void;
+						getFramingRect(): androidgraphicsRect;
+						getWidth(): number;
+						getHeight(): number;
+					});
+					public setBorderAlpha(param0: number): void;
+					public setMaskColor(param0: number): void;
+					public getFramingRect(): androidgraphicsRect;
+					public getHeight(): number;
+					public setupViewFinder(): void;
+					public setViewFinderOffset(param0: number): void;
+					public getWidth(): number;
+					public setBorderStrokeWidth(param0: number): void;
+					public setBorderCornerRadius(param0: number): void;
+					public setLaserColor(param0: number): void;
+					public setLaserEnabled(param0: boolean): void;
+					public setBorderCornerRounded(param0: boolean): void;
+					public setBorderLineLength(param0: number): void;
+					public setBorderColor(param0: number): void;
+					public setSquareViewFinder(param0: boolean): void;
+				}
+			}
+		}
+	}
+}
+
+import androidgraphicsCanvas = android.graphics.Canvas;
+import androidgraphicsPaint = android.graphics.Paint;
+/// <reference path="./android.content.Context.d.ts" />
+/// <reference path="./android.graphics.Canvas.d.ts" />
+/// <reference path="./android.graphics.Paint.d.ts" />
+/// <reference path="./android.graphics.Rect.d.ts" />
+/// <reference path="./android.util.AttributeSet.d.ts" />
+declare module me {
+	export module dm7 {
+		export module barcodescanner {
+			export module core {
+				export class ViewFinderView {
+					public mLaserPaint: androidgraphicsPaint;
+					public mFinderMaskPaint: androidgraphicsPaint;
+					public mBorderPaint: androidgraphicsPaint;
+					public mBorderLineLength: number;
+					public mSquareViewFinder: boolean;
+					public setBorderAlpha(param0: number): void;
+					public setMaskColor(param0: number): void;
+					public getFramingRect(): androidgraphicsRect;
+					public drawViewFinderBorder(param0: androidgraphicsCanvas): void;
+					public getHeight(): number;
+					public onDraw(param0: androidgraphicsCanvas): void;
+					public setupViewFinder(): void;
+					public setViewFinderOffset(param0: number): void;
+					public getWidth(): number;
+					public setBorderStrokeWidth(param0: number): void;
+					public setBorderCornerRadius(param0: number): void;
+					public updateFramingRect(): void;
+					public onSizeChanged(param0: number, param1: number, param2: number, param3: number): void;
+					public constructor(param0: androidcontentContext, param1: androidutilAttributeSet);
+					public setLaserColor(param0: number): void;
+					public constructor(param0: androidcontentContext);
+					public setLaserEnabled(param0: boolean): void;
+					public setBorderCornerRounded(param0: boolean): void;
+					public drawLaser(param0: androidgraphicsCanvas): void;
+					public setBorderLineLength(param0: number): void;
+					public drawViewFinderMask(param0: androidgraphicsCanvas): void;
+					public setBorderColor(param0: number): void;
+					public setSquareViewFinder(param0: boolean): void;
+				}
+			}
+		}
+	}
+}
+
 declare module me {
 	export module dm7 {
 		export module barcodescanner {
@@ -6170,11 +4796,6 @@ declare module me {
 	}
 }
 
-import androidcontentContext = android.content.Context;
-import androidutilAttributeSet = android.util.AttributeSet;
-import javautilList = java.util.List;
-import javautilCollection = java.util.Collection;
-import androidhardwareCamera = android.hardware.Camera;
 import comgooglezxingPlanarYUVLuminanceSource = com.google.zxing.PlanarYUVLuminanceSource;
 import comgooglezxingResult = com.google.zxing.Result;
 /// <reference path="./android.content.Context.d.ts" />
@@ -6188,11 +4809,12 @@ declare module me {
 	export module dm7 {
 		export module barcodescanner {
 			export module zxing {
-				export class ZXingScannerView {
+				export class ZXingScannerView extends me.dm7.barcodescanner.core.BarcodeScannerView {
 					public static ALL_FORMATS: javautilList<any>;
 					public constructor(param0: androidcontentContext, param1: androidutilAttributeSet);
 					public getFormats(): javautilCollection<any>;
 					public setFormats(param0: javautilList<any>): void;
+					public resumeCameraPreview(): void;
 					public resumeCameraPreview(param0: me.dm7.barcodescanner.zxing.ZXingScannerView.ResultHandler): void;
 					public onPreviewFrame(param0: native.Array<number>, param1: androidhardwareCamera): void;
 					public buildLuminanceSource(param0: native.Array<number>, param1: number, param2: number): comgooglezxingPlanarYUVLuminanceSource;
