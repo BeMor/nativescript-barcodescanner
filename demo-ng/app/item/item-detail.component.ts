@@ -22,7 +22,9 @@ export class ItemDetailComponent implements OnInit {
   }
 
   onScanResult(evt) {
-    console.log(evt);
+    console.log("App event");
     console.log(evt.object);
+    console.log(evt.format);
+    console.log(evt.text);
   }
 }

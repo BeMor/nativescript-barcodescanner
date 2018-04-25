@@ -14,9 +14,9 @@ let _onContinuousScanResult = undefined;
 
 export class BarcodeScannerView extends BarcodeScannerBaseView {
 
-  private _reader: QRCodeReader;
-  private _scanner: QRCodeReaderViewController;
+  private _reader: me.dm7.barcodescanner.zxing.ZXingScannerView;
   private _hasSupport;
+  private _lastScanText = "";
 
   constructor() {
     super();
@@ -28,65 +28,66 @@ export class BarcodeScannerView extends BarcodeScannerBaseView {
     return v;
   }
 
+  disposeNativeView(): void {
+    console.log("Dispose nativeview");
+    this._reader.stopCamera();
+    appModule.android.off(appModule.AndroidApplication.activityPausedEvent);
+    appModule.android.off(appModule.AndroidApplication.activityResumedEvent);
+    appModule.android.off(appModule.AndroidApplication.activityRequestPermissionsEvent);
+  }
+
+
+  startScanning() {
+    const that = this;
+    this._reader.resumeCameraPreview(new me.dm7.barcodescanner.zxing.ZXingScannerView.ResultHandler({
+      handleResult: function (rawResult: any){
+        if(that._lastScanText !== rawResult.getText() || that.reportDuplicates) {
+          that.notify({
+            eventName: BarcodeScannerBaseView.scanResultEvent,
+            object: that,
+            format: rawResult.getBarcodeFormat(),
+            text: rawResult.getText()
+          });
+          that._lastScanText = rawResult.getText();
+        }
+        setTimeout(() => {
+          that.startScanning();
+        }, 500);
+      }
+    }));
+    this._reader.startCamera();
+  }
+
   initView() {
-    
-    //let sv: android.view.SurfaceView = new android.view.SurfaceView(appModule.android.context);
-    //let av: android.view.View = this.android;
-
-    
-
-
-
+    appModule.android.on(appModule.AndroidApplication.activityPausedEvent, () => {
+      console.log("Activity paused")
+      this._reader.stopCamera();
+    });
+    appModule.android.on(appModule.AndroidApplication.activityResumedEvent, () => {
+      console.log("Activity resumed")
+      this.startScanning();
+    });
+    appModule.android.on(appModule.AndroidApplication.activityRequestPermissionsEvent, (args: AndroidActivityRequestPermissionsEventData) => {
+      for (let i = 0; i < args.permissions.length; i++) {
+        if (args.grantResults[i] === android.content.pm.PackageManager.PERMISSION_DENIED) {
+          console.log("Please allow access to the Camera and try again.");
+          return;
+        }
+      }
+      this.startScanning();
+    });
     setTimeout(() => {
-      console.log(typeof this.android);
-      console.log("Added");
+      this._reader = new me.dm7.barcodescanner.zxing.ZXingScannerView(appModule.android.foregroundActivity);
+      let fl: android.view.ViewGroup = this.android;
+      fl.addView(<any>this._reader);
+      const formats = getBarcodeTypes(this.formats);
+      this._reader.setFormats(formats);
       android.support.v4.app.ActivityCompat.requestPermissions(
         appModule.android.foregroundActivity,
         [android.Manifest.permission.CAMERA],
         234 // irrelevant since we simply invoke onPermissionGranted
       )
-      console.log("Granted");
-      let sv: me.dm7.barcodescanner.zxing.ZXingScannerView = new me.dm7.barcodescanner.zxing.ZXingScannerView(appModule.android.foregroundActivity);
-      let fl: android.view.ViewGroup = this.android;
-      fl.addView(<any>sv);
-      console.dir(sv);
-      sv.resumeCameraPreview(new me.dm7.barcodescanner.zxing.ZXingScannerView.ResultHandler({
-        handleResult: function (rawResult: any){
-          console.dir(rawResult);
-        }
-      }));
-      sv.startCamera();
-      sv.setFlash(true);
-      //sv.startCamera();
-      /*appModule.android.on(appModule.AndroidApplication.activityRequestPermissionsEvent, (args: AndroidActivityRequestPermissionsEventData) => {
-        for (let i = 0; i < args.permissions.length; i++) {
-          if (args.grantResults[i] === android.content.pm.PackageManager.PERMISSION_DENIED) {
-              console.log("Please allow access to the Camera and try again.");
-              return;
-            }
-          }
-          let fl: android.widget.FrameLayout = this.android;
-          let sv: android.view.SurfaceView = new android.view.SurfaceView(appModule.android.context);
-          fl.addView(sv);
-
-          let cm: com.google.zxing.client.android.camera.CameraManager = new com.google.zxing.client.android.camera.CameraManager(appModule.android.foregroundActivity);
-          let sh: android.view.SurfaceHolder = sv.getHolder();
-          cm.openDriver(sh);
-          new com.google.zxing.client.android.CaptureActivityHandler(appModule.android.foregroundActivity, "", "", "", cm);
-          console.log("Done");
-        });
-
-        android.support.v4.app.ActivityCompat.requestPermissions(
-          appModule.android.foregroundActivity,
-          [android.Manifest.permission.CAMERA],
-          234 // irrelevant since we simply invoke onPermissionGranted
-        );*/
-
-      
-
-
-    }, 3000);
-    
+    }, 100);
   }
 
   public onLayout(left: number, top: number, right: number, bottom: number): void {
@@ -94,6 +95,30 @@ export class BarcodeScannerView extends BarcodeScannerBaseView {
   }
 }
 
+const getBarcodeTypes = (formatsString: string) => {
+  if (formatsString) {
+    let formats = formatsString.split(",");
+    const types = new Array<com.google.zxing.BarcodeFormat>();
+    for (let format of formats) {
+      format = format.trim();
+      if (format === "QR_CODE") types.push(com.google.zxing.BarcodeFormat.QR_CODE);
+      else if (format === "PDF_417") types.push(com.google.zxing.BarcodeFormat.PDF_417);
+      else if (format === "AZTEC") types.push(com.google.zxing.BarcodeFormat.AZTEC);
+      else if (format === "UPC_E") types.push(com.google.zxing.BarcodeFormat.UPC_E);
+      else if (format === "CODE_39") types.push(com.google.zxing.BarcodeFormat.CODE_39);
+      else if (format === "CODE_39_MOD_43") types.push(com.google.zxing.BarcodeFormat.CODE_39_MOD_43);
+      else if (format === "CODE_93") types.push(com.google.zxing.BarcodeFormat.CODE_93);
+      else if (format === "CODE_128") types.push(com.google.zxing.BarcodeFormat.CODE_128);
+      else if (format === "DATA_MATRIX") types.push(com.google.zxing.BarcodeFormat.DATA_MATRIX);
+      else if (format === "EAN_8") types.push(com.google.zxing.BarcodeFormat.EAN_8);
+      else if (format === "EAN_13") types.push(com.google.zxing.BarcodeFormat.EAN_13);
+      else if (format === "ITF") types.push(com.google.zxing.BarcodeFormat.ITF);
+    }
+    let formatList = new java.util.ArrayList(java.util.Arrays.asList(formats));
+    return formatList;
+  }
+  return me.dm7.barcodescanner.zxing.ZXingScannerView.ALL_FORMATS;
+};
 
 
 export class BarcodeScanner {
