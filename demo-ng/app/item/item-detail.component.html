@@ -1,4 +1,8 @@
-<ActionBar title="Details" class="action-bar"></ActionBar>
+<ActionBar title="Details" class="action-bar">
+    <ActionItem>
+        <Label text="Test" [nsRouterLink]="['/items']"></Label>
+    </ActionItem>
+</ActionBar>
 <FlexboxLayout flexDirection="column" class="page">
     <FlexboxLayout class="m-15">
         <Label class="h2" [text]="item.id + '. '"></Label>
@@ -12,6 +16,11 @@
         beepOnScan="true"
         reportDuplicates="true"
         preferFrontCamera="false"
+        scannerBorderColor="0xe600e4"
+        scannerBorderAlpha="0.1"
+        scannerBorderWidth="10"
+        laserColor="0x79ff4d"
+        laserEnabled="true"
         (scanResult)="onScanResult($event)">
     </BarcodeScanner>
     <Label class="h4" [text]="item.role"></Label>

@@ -58,6 +58,10 @@ export class BarcodeScannerView extends BarcodeScannerBaseView {
     this._reader.startCamera();
   }
 
+  stopScanning() {
+    this._reader.stopCamera();
+  }
+
   initView() {
     appModule.android.on(appModule.AndroidApplication.activityPausedEvent, () => {
       console.log("Activity paused")
@@ -78,6 +82,11 @@ export class BarcodeScannerView extends BarcodeScannerBaseView {
     });
     setTimeout(() => {
       this._reader = new me.dm7.barcodescanner.zxing.ZXingScannerView(appModule.android.foregroundActivity);
+      this._reader.setBorderColor(this.scannerBorderColor);
+      this._reader.setBorderStrokeWidth(this.scannerBorderWidth);
+      this._reader.setBorderAlpha(this.scannerBorderAlpha);
+      this._reader.setLaserEnabled(this.laserEnabled);
+      this._reader.setLaserColor(this.laserColor);
       let fl: android.view.ViewGroup = this.android;
       fl.addView(<any>this._reader);
       const formats = getBarcodeTypes(this.formats);
@@ -85,7 +94,7 @@ export class BarcodeScannerView extends BarcodeScannerBaseView {
       android.support.v4.app.ActivityCompat.requestPermissions(
         appModule.android.foregroundActivity,
         [android.Manifest.permission.CAMERA],
-        234 // irrelevant since we simply invoke onPermissionGranted
+        234 
       )
     }, 100);
   }

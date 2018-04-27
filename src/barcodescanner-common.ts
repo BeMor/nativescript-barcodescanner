@@ -151,6 +151,37 @@ export const reportDuplicatesProperty = new Property<BarcodeScannerView, boolean
   valueConverter: booleanConverter
 });
 
+export const scannerBorderColor = new Property<BarcodeScannerView, number>({
+  name: "scannerBorderColor",
+  defaultValue: 0x000000,
+  valueConverter: Number
+});
+
+export const scannerBorderAlpha = new Property<BarcodeScannerView, number>({
+  name: "scannerBorderAlpha",
+  defaultValue: 1,
+  valueConverter: Number
+});
+
+export const scannerBorderWidth = new Property<BarcodeScannerView, number>({
+  name: "scannerBorderWidth",
+  defaultValue: 1,
+  valueConverter: Number
+});
+
+export const laserEnabled = new Property<BarcodeScannerView, boolean>({
+  name: "laserEnabled",
+  defaultValue: true,
+  valueConverter: booleanConverter
+});
+
+export const laserColor = new Property<BarcodeScannerView, number>({
+  name: "laserColor",
+  defaultValue: 0xEEEEEE,
+  valueConverter: Number
+});
+
+
 export abstract class BarcodeScannerView extends ContentView {
 
   static scanResultEvent: string = "scanResult";
@@ -159,6 +190,14 @@ export abstract class BarcodeScannerView extends ContentView {
   protected preferFrontCamera: boolean;
   protected beepOnScan: boolean;
   protected reportDuplicates: boolean;
+  protected scannerBorderColor: number;
+  protected scannerBorderAlpha: number;
+  protected scannerBorderWidth: number;
+  protected laserEnabled : boolean;
+  protected laserColor : number;
+
+  startScanning(): void {};
+  stopScanning(): void {};
 
   [formatsProperty.setNative](value: string) {
     this.formats = value;
@@ -175,9 +214,34 @@ export abstract class BarcodeScannerView extends ContentView {
   [reportDuplicatesProperty.setNative](value: boolean) {
     this.reportDuplicates = value;
   }
+
+  [scannerBorderColor.setNative](value: number) {
+    this.scannerBorderColor = value;
+  }
+
+  [scannerBorderAlpha.setNative](value: number) {
+    this.scannerBorderAlpha = value;
+  }
+
+  [scannerBorderWidth.setNative](value: number) {
+    this.scannerBorderWidth = value;
+  }
+
+  [laserEnabled.setNative](value: boolean) {
+    this.laserEnabled = value;
+  }
+
+  [laserColor.setNative](value: number) {
+    this.laserColor = value;
+  }
 }
 
 formatsProperty.register(BarcodeScannerView);
 preferFrontCameraProperty.register(BarcodeScannerView);
 beepOnScanProperty.register(BarcodeScannerView);
 reportDuplicatesProperty.register(BarcodeScannerView);
+scannerBorderColor.register(BarcodeScannerView);
+scannerBorderAlpha.register(BarcodeScannerView);
+scannerBorderWidth.register(BarcodeScannerView);
+laserEnabled.register(BarcodeScannerView);
+laserColor.register(BarcodeScannerView);
