@@ -21,6 +21,20 @@ export class BarcodeScannerView extends BarcodeScannerBaseView {
     return v;
   }
 
+  startScanning(): void {
+    if(this._scanner == null) {
+      this.initView;
+    } else {
+      this._scanner.startScanning();
+    }
+  };
+  
+  stopScanning(): void {
+    if(this._scanner != null){
+      this._scanner.stopScanning();
+    }
+  }
+
   initView() {
     const types = getBarcodeTypes(this.formats);
     this._reader = QRCodeReader.readerWithMetadataObjectTypes(<any>types);

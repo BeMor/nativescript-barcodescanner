@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 
 import {Item} from "./item";
 import {ItemService} from "./item.service";
+import {BarcodeScannerView} from "nativescript-barcodescanner"
 
 @Component({
   selector: "ns-details",
@@ -26,5 +27,7 @@ export class ItemDetailComponent implements OnInit {
     console.log(evt.object);
     console.log(evt.format);
     console.log(evt.text);
+    let bcs = <BarcodeScannerView>evt.object;
+    bcs.stopScanning();
   }
 }

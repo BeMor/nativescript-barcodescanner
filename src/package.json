@@ -73,5 +73,8 @@
     "tns-platform-declarations": "^3.4.1",
     "tslint": "^5.0.0",
     "typescript": "~2.6.0"
+  },
+  "dependencies": {
+    "nativescript": "^4.0.0"
   }
 }
