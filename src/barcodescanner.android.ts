@@ -44,6 +44,7 @@ export class BarcodeScannerView extends BarcodeScannerBaseView {
     const that = this;
     this._reader.resumeCameraPreview(new me.dm7.barcodescanner.zxing.ZXingScannerView.ResultHandler({
       handleResult: function (rawResult: any){
+        that._startScanning();
         if(that._lastScanText !== rawResult.getText() || that.reportDuplicates) {
           that.notify({
             eventName: BarcodeScannerBaseView.scanResultEvent,
@@ -53,9 +54,6 @@ export class BarcodeScannerView extends BarcodeScannerBaseView {
           });
           that._lastScanText = rawResult.getText();
         }
-        setTimeout(() => {
-          that.startScanning();
-        }, 500);
       }
     }));
     this._reader.startCamera();
