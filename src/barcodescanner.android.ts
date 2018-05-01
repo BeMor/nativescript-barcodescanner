@@ -30,14 +30,17 @@ export class BarcodeScannerView extends BarcodeScannerBaseView {
 
   disposeNativeView(): void {
     console.log("Dispose nativeview");
-    this._reader.stopCamera();
-    appModule.android.off(appModule.AndroidApplication.activityPausedEvent);
-    appModule.android.off(appModule.AndroidApplication.activityResumedEvent);
     appModule.android.off(appModule.AndroidApplication.activityRequestPermissionsEvent);
+    this.stopScanning();
   }
 
 
   startScanning() {
+    this.addActivityListeners();
+    this._startScanning();
+  }
+
+  private _startScanning() {
     const that = this;
     this._reader.resumeCameraPreview(new me.dm7.barcodescanner.zxing.ZXingScannerView.ResultHandler({
       handleResult: function (rawResult: any){
@@ -57,20 +60,29 @@ export class BarcodeScannerView extends BarcodeScannerBaseView {
     }));
     this._reader.startCamera();
   }
-
   stopScanning() {
+    this.removeActivityListeners();
+    this._stopScanning();
+  }
+  private _stopScanning() {
     this._reader.stopCamera();
   }
-
-  initView() {
+  private removeActivityListeners() {
+    appModule.android.off(appModule.AndroidApplication.activityPausedEvent);
+    appModule.android.off(appModule.AndroidApplication.activityResumedEvent);
+  }
+  private addActivityListeners() {
+    this.removeActivityListeners();
     appModule.android.on(appModule.AndroidApplication.activityPausedEvent, () => {
       console.log("Activity paused")
-      this._reader.stopCamera();
+      this._stopScanning();
     });
     appModule.android.on(appModule.AndroidApplication.activityResumedEvent, () => {
       console.log("Activity resumed")
-      this.startScanning();
+      this._startScanning();
     });
+  }
+  initView() {
     appModule.android.on(appModule.AndroidApplication.activityRequestPermissionsEvent, (args: AndroidActivityRequestPermissionsEventData) => {
       for (let i = 0; i < args.permissions.length; i++) {
         if (args.grantResults[i] === android.content.pm.PackageManager.PERMISSION_DENIED) {
@@ -79,6 +91,10 @@ export class BarcodeScannerView extends BarcodeScannerBaseView {
         }
       }
       this.startScanning();
+      this.notify({
+        eventName: BarcodeScannerBaseView.scanStartedEvent,
+        object: this
+      });
     });
     setTimeout(() => {
       this._reader = new me.dm7.barcodescanner.zxing.ZXingScannerView(appModule.android.foregroundActivity);
@@ -242,7 +258,7 @@ export class BarcodeScanner {
         if (arg.message) {
           intent.putExtra("PROMPT_MESSAGE", arg.message);
         }
-        if (arg.preferFrontCamera === true) {
+        /*if (arg.preferFrontCamera === true) {
           // if no front cam is found this will fall back to the back camera
           intent.putExtra(com.google.zxing.client.android.Intents.Scan.CAMERA_ID, 1);
         }
@@ -268,7 +284,7 @@ export class BarcodeScanner {
           //  ZXing expects a String
           intent.putExtra(com.google.zxing.client.android.Intents.Scan.RESULT_DISPLAY_DURATION_MS, "" + arg.resultDisplayDuration);
         }
-        intent.putExtra(com.google.zxing.client.android.Intents.Scan.SAVE_HISTORY, false);
+        intent.putExtra(com.google.zxing.client.android.Intents.Scan.SAVE_HISTORY, false);*/
 
         // rectangle size can be controlled as well (but don't bother as of yet)
         // intent.putExtra(com.google.zxing.client.android.Intents.Scan.WIDTH, 200);

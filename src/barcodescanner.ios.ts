@@ -72,6 +72,10 @@ export class BarcodeScannerView extends BarcodeScannerBaseView {
       this.ios.layer.insertSublayerAtIndex(this._reader.previewLayer, 0);
       this._reader.startScanning();
     }
+    that.notify({
+      eventName: BarcodeScannerBaseView.scanStartedEvent,
+      object: that
+    });
   }
 
   public onLayout(left: number, top: number, right: number, bottom: number): void {

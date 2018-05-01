@@ -185,6 +185,7 @@ export const laserColor = new Property<BarcodeScannerView, number>({
 export abstract class BarcodeScannerView extends ContentView {
 
   static scanResultEvent: string = "scanResult";
+  static scanStartedEvent: string = "scanStarted";
 
   protected formats: string;
   protected preferFrontCamera: boolean;
